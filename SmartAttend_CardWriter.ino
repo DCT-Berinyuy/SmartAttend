@@ -141,10 +141,10 @@ void loop() {
   // Display summary
   Serial.println(F(""));
   Serial.println(F("--- DATA SUMMARY ---"));
-  Serial.println(F("Name: ") + studentName);
-  Serial.println(F("Email: ") + studentEmail);
-  Serial.println(F("WhatsApp: ") + studentWhatsApp);
-  Serial.println(F("Matric No: ") + studentMatric);
+  Serial.print(F("Name: ")); Serial.println(studentName);
+  Serial.print(F("Email: ")); Serial.println(studentEmail);
+  Serial.print(F("WhatsApp: ")); Serial.println(studentWhatsApp);
+  Serial.print(F("Matric No: ")); Serial.println(studentMatric);
   Serial.println(F(""));
   
   // Wait for card
@@ -280,10 +280,10 @@ void verifyCard() {
   String matric = readDataFromBlock(BLOCK_MATRIC);
   
   Serial.println(F("--- VERIFICATION ---"));
-  Serial.println(F("Name: ") + name);
-  Serial.println(F("Email: ") + email);
-  Serial.println(F("WhatsApp: ") + whatsapp);
-  Serial.println(F("Matric No: ") + matric);
+  Serial.print(F("Name: ")); Serial.println(name);
+  Serial.print(F("Email: ")); Serial.println(email);
+  Serial.print(F("WhatsApp: ")); Serial.println(whatsapp);
+  Serial.print(F("Matric No: ")); Serial.println(matric);
   
   if (name == studentName && email == studentEmail && 
       whatsapp == studentWhatsApp && matric == studentMatric) {

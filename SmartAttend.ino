@@ -196,14 +196,14 @@ void loop() {
     mfrc522.PCD_StopCrypto1();
     return;
   }
-  
+
   // Display student info
   Serial.println(F(""));
   Serial.println(F("--- STUDENT INFORMATION ---"));
-  Serial.println(F("Name: ") + studentName);
-  Serial.println(F("Email: ") + studentEmail);
-  Serial.println(F("WhatsApp: ") + studentWhatsApp);
-  Serial.println(F("Matric No: ") + studentMatric);
+  Serial.print(F("Name: ")); Serial.println(studentName);
+  Serial.print(F("Email: ")); Serial.println(studentEmail);
+  Serial.print(F("WhatsApp: ")); Serial.println(studentWhatsApp);
+  Serial.print(F("Matric No: ")); Serial.println(studentMatric);
   Serial.println(F(""));
   
   // Get current date and time (placeholder - will be added by computer script)
