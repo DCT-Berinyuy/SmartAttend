@@ -53,12 +53,16 @@ This guide shows you exactly how to connect all components to your Arduino UNO.
 
 ### LED Indicators → Arduino UNO
 
-| LED Color            | Arduino Pin | Resistor | Notes                     |
+You can use **3 separate LEDs** OR an **RGB LED Module** (Common Cathode).
+
+| LED Pin / Color      | Arduino Pin | Resistor | Notes                     |
 | -------------------- | ----------- | -------- | ------------------------- |
-| Red LED (Anode +)    | Pin 6       | 220Ω     | Error/Duplicate indicator |
-| Green LED (Anode +)  | Pin 5       | 220Ω     | Success indicator         |
-| Blue LED (Anode +)   | Pin 4       | 220Ω     | Ready/Waiting indicator   |
-| All LED Cathodes (-) | GND         | -        | Common ground             |
+| **R** (Red)          | Pin 6       | 220Ω\*   | Error/Duplicate indicator |
+| **G** (Green)        | Pin 5       | 220Ω\*   | Success indicator         |
+| **B** (Blue)         | Pin 4       | 220Ω\*   | Ready/Waiting indicator   |
+| **GND** / Cathode(-) | GND         | -        | Common ground             |
+
+_\*Resistors are only needed if your RGB module doesn't have them built-in. Most small board modules (like yours) have them already._
 
 ### Buzzer → Arduino UNO
 
@@ -97,27 +101,24 @@ This guide shows you exactly how to connect all components to your Arduino UNO.
    - Connect RFID **RST** to Arduino **Pin 9** (white wire)
    - Leave RFID **IRQ** pin unconnected
 
-### Step 3: Connect LEDs
+### Step 3: Connect LEDs (Option A: 3 Separate LEDs)
 
 Each LED needs a resistor to limit current and prevent damage.
 
-1. **Red LED (Error Indicator):**
-   - Insert LED into breadboard
-   - Connect LED **long leg (anode +)** to one end of 220Ω resistor
-   - Connect other end of resistor to Arduino **Pin 6**
-   - Connect LED **short leg (cathode -)** to breadboard ground rail
+1. **Red LED (Error):** Pin 6 → Resistor → LED Anode (+) → LED Cathode (-) → GND
+2. **Green LED (Success):** Pin 5 → Resistor → LED Anode (+) → LED Cathode (-) → GND
+3. **Blue LED (Ready):** Pin 4 → Resistor → LED Anode (+) → LED Cathode (-) → GND
 
-2. **Green LED (Success Indicator):**
-   - Insert LED into breadboard
-   - Connect LED **long leg (anode +)** to one end of 220Ω resistor
-   - Connect other end of resistor to Arduino **Pin 5**
-   - Connect LED **short leg (cathode -)** to breadboard ground rail
+### Step 3: Connect LEDs (Option B: RGB LED Module)
 
-3. **Blue LED (Ready Indicator):**
-   - Insert LED into breadboard
-   - Connect LED **long leg (anode +)** to one end of 220Ω resistor
-   - Connect other end of resistor to Arduino **Pin 4**
-   - Connect LED **short leg (cathode -)** to breadboard ground rail
+If you have an RGB LED module (pins marked GND, B, G, R):
+
+1. **GND** → Arduino **GND**
+2. **B** (Blue) → Arduino **Pin 4**
+3. **G** (Green) → Arduino **Pin 5**
+4. **R** (Red) → Arduino **Pin 6**
+
+_Most modules have built-in resistors. If yours is just a bare 4-pin LED, add a 220Ω resistor between each color pin and the Arduino._
 
 ### Step 4: Connect Buzzer
 
@@ -150,17 +151,17 @@ Before powering on, verify:
                     Arduino UNO
                   ┌─────────────┐
                   │             │
-    RFID Module   │  Digital    │    LEDs + Resistors
-    ┌──────────┐  │  Pins       │    ┌────────────┐
-    │ 3.3V ────┼──┤ 3.3V        │    │            │
-    │ RST  ────┼──┤ 9           │    │  Pin 4 ────┼─[220Ω]─┤>├─┐ Blue LED
-    │ GND  ────┼──┤ GND         │    │  Pin 5 ────┼─[220Ω]─┤>├─┤ Green LED
-    │ IRQ       │  │             │    │  Pin 6 ────┼─[220Ω]─┤>├─┘ Red LED
-    │ MISO ────┼──┤ 12          │    │            │         │
-    │ MOSI ────┼──┤ 11          │    │            │        GND
-    │ SCK  ────┼──┤ 13          │    │            │
-    │ SDA  ────┼──┤ 10          │    │            │
-    └──────────┘  │             │    └────────────┘
+    RFID Module   │  Digital    │      RGB LED Module
+    ┌──────────┐  │  Pins       │    ┌────────────────┐
+    │ 3.3V ────┼──┤ 3.3V        │    │                │
+    │ RST  ────┼──┤ 9           │    │  Pin 4 (B) ────┼── Blue
+    │ GND  ────┼──┤ GND         │    │  Pin 5 (G) ────┼── Green
+    │ IRQ       │  │             │    │  Pin 6 (R) ────┼── Red
+    │ MISO ────┼──┤ 12          │    │                │
+    │ MOSI ────┼──┤ 11          │    │  GND       ────┼── Ground
+    │ SCK  ────┼──┤ 13          │    │                │
+    │ SDA  ────┼──┤ 10          │    └────────────────┘
+    └──────────┘  │             │
                   │             │
                   │  Pin 8  ────┼───┐
                   │             │   │  Buzzer
