@@ -103,7 +103,7 @@
 
 ### Step 3: Program RFID Cards
 
-1. Open `SmartAttend_CardWriter.ino` in Arduino IDE
+1. Open `SmartAttend_CardWriter_Tool/SmartAttend_CardWriter_Tool.ino` in Arduino IDE
 2. Upload to Arduino UNO
 3. Open Serial Monitor (9600 baud)
 4. Follow prompts to enter student data
@@ -112,7 +112,7 @@
 
 ### Step 4: Run Attendance System
 
-1. Open `SmartAttend.ino` in Arduino IDE
+1. Open `SmartAttend_Main/SmartAttend_Main.ino` in Arduino IDE
 2. Upload to Arduino UNO
 3. Choose a data logging method (see below)
 4. Students scan cards to register attendance
@@ -163,7 +163,7 @@ chmod +x attendance_logger.sh
 1. **Upload Card Writer Sketch:**
 
    ```bash
-   # Open SmartAttend_CardWriter.ino in Arduino IDE
+   # Open SmartAttend_CardWriter_Tool/SmartAttend_CardWriter_Tool.ino in Arduino IDE
    # Select: Tools → Board → Arduino UNO
    # Select: Tools → Port → (your Arduino port)
    # Click Upload button
@@ -192,7 +192,7 @@ chmod +x attendance_logger.sh
 1. **Upload Main Attendance Sketch:**
 
    ```bash
-   # Open SmartAttend.ino in Arduino IDE
+   # Open SmartAttend_Main/SmartAttend_Main.ino in Arduino IDE
    # Upload to Arduino UNO
    ```
 
@@ -387,8 +387,10 @@ sudo usermod -a -G dialout $USER
 
 ```
 SmartAttend/
-├── SmartAttend_CardWriter.ino    # RFID card programming sketch
-├── SmartAttend.ino                # Main attendance system sketch
+├── SmartAttend_CardWriter_Tool/
+│   └── SmartAttend_CardWriter_Tool.ino    # RFID card programming sketch
+├── SmartAttend_Main/
+│   └── SmartAttend_Main.ino                # Main attendance system sketch
 ├── attendance_logger.py           # Python data logger script
 ├── attendance_logger.sh           # Bash data logger script
 ├── README.md                      # This file

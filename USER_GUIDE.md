@@ -135,7 +135,7 @@ If not already installed:
 
 ### Step 1: Upload Card Writer Sketch
 
-1. Open `SmartAttend_CardWriter.ino` in Arduino IDE
+1. Open `SmartAttend_CardWriter_Tool/SmartAttend_CardWriter_Tool.ino` in Arduino IDE
 2. Click **Verify** (✓) to check for errors
 3. Click **Upload** (→) to upload to Arduino
 4. Wait for "Done uploading"
@@ -201,7 +201,7 @@ If not already installed:
 
 ### Step 1: Upload Attendance Sketch
 
-1. Open `SmartAttend.ino` in Arduino IDE
+1. Open `SmartAttend_Main/SmartAttend_Main.ino` in Arduino IDE
 2. Click **Upload** (→)
 3. Wait for "Done uploading"
 
