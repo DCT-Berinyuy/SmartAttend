@@ -1,13 +1,5 @@
 # SmartAttend - RFID-Based Automated Attendance System
 
-## Arduino sketches and data logging scripts
-*.ino
-*.py
-*.sh
-
-## Documentation
-*.md
-
 ## Generated data files (excluded from git)
 attendance_log.csv
 attendance_log_*.txt
