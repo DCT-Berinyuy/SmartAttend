@@ -1,0 +1,46 @@
+# SmartAttend - RFID-Based Automated Attendance System
+
+## Arduino sketches and data logging scripts
+*.ino
+*.py
+*.sh
+
+## Documentation
+*.md
+
+## Generated data files (excluded from git)
+attendance_log.csv
+attendance_log_*.txt
+
+## Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+## Google Sheets credentials (NEVER commit!)
+credentials.json
+token.json
+
+## Arduino build files
+*.hex
+*.elf
+*.eep
+
+## OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+## IDE files
+.vscode/
+.idea/
+*.code-workspace
